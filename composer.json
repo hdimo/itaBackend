@@ -1,0 +1,13 @@
+{
+    "name": "Info terrafic algerie",
+    "description": "Information sur le terrafic en algerie",
+    "keywords": [
+        "framework",
+        "zf2"
+    ],
+    "require": {
+        "php": ">=5.5",
+        "zendframework/zendframework": "~2.5",
+        "doctrine/doctrine-orm-module": "^0.9.1"
+    }
+}
