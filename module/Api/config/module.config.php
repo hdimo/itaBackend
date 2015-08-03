@@ -14,40 +14,33 @@ return array(
             'ViewJsonStrategy',
         ),
     ),
-
     'controllers' => array(
-        'invokables'=>[
-            'Api\Controller\Position'=>'Api\Controller\PositionController'
+        'invokables' => [
+            'Api\Controller\Position' => 'Api\Controller\PositionController',
+            'Api\Controller\NewPosition' => 'Api\Controller\NewPositionController',
         ],
     ),
 
     'router' => array(
         'routes' => array(
-            'api' => array(
+            'position' => array(
                 'type' => 'Literal',
                 'options' => array(
-                    'route' => '/api',
+                    'route' => '/api/position',
                     'defaults' => array(
                         '__NAMESPACE__' => 'Api\Controller',
                         'controller' => 'Position',
                     ),
                 ),
             ),
-        ),
-        'may_terminate' => true,
-        'child_routes' => array(
-            'position' => array(
-                'type' => 'Segment',
+            'new-position' => array(
+                'type' => 'Literal',
                 'options' => array(
-                    'route' => '/position[/:id]',
-                    'constraints' => array(
-                        'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                    'route' => '/api/new-position',
+                    'defaults' => array(
+                        '__NAMESPACE__' => 'Api\Controller',
+                        'controller' => 'NewPosition',
                     ),
-                    'defaults'=>[
-                        'controller'=>'Api\Controller\Position',
-                        'action'=>'index',
-                    ],
                 ),
             ),
         ),
