@@ -6,6 +6,7 @@
 
 namespace Api\Controller;
 
+use DoctrineModule\Stdlib\Hydrator\DoctrineObject;
 use Zend\View\Model\JsonModel;
 
 class PositionController extends BaseController
@@ -20,8 +21,15 @@ class PositionController extends BaseController
 
     public function getList()
     {
-        return new JsonModel([
-            'title'=>'list method',
-        ]);
+        $hydrator = new DoctrineObject(
+            $this->getEntityManager(),
+            'Application\Entity\Position'
+        );
+        $positionEntities = $this->getEntityManager()->getRepository('Application\Entity\Position')->findAll();
+        $position=[];
+        foreach($positionEntities as $entity){
+            $position[] = $hydrator->extract($entity);
+        }
+        return new JsonModel($position);
     }
 }

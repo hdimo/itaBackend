@@ -25,12 +25,12 @@ class Position
     /**
      * @ORM\Column(type="string")
      */
-    protected $lat;
+    protected $latitude;
 
     /**
      * @ORM\Column(type="string")
      */
-    protected $lng;
+    protected $longitude;
 
     /**
      * @ORM\Column(type="smallint")
@@ -60,33 +60,33 @@ class Position
     /**
      * @return mixed
      */
-    public function getLat()
+    public function getLatitude()
     {
-        return $this->lat;
+        return $this->latitude;
     }
 
     /**
-     * @param mixed $lat
+     * @param mixed $latitude
      */
-    public function setLat($lat)
+    public function setLatitude($latitude)
     {
-        $this->lat = $lat;
+        $this->latitude = $latitude;
     }
 
     /**
      * @return mixed
      */
-    public function getLng()
+    public function getLongitude()
     {
-        return $this->lng;
+        return $this->longitude;
     }
 
     /**
-     * @param mixed $lng
+     * @param mixed $longitude
      */
-    public function setLng($lng)
+    public function setLongitude($longitude)
     {
-        $this->lng = $lng;
+        $this->longitude = $longitude;
     }
 
     /**
