@@ -15,6 +15,9 @@ class NewPositionController extends BaseController
 
     public function create($data)
     {
+
+        $this->getResponseWithHeader();
+
         $position = new Position();
         $position->setLatitude($data['latitude']);
         $position->setLongitude($data['longitude']);
@@ -26,7 +29,6 @@ class NewPositionController extends BaseController
         $this->em->flush();
 
         $model = new JsonModel();
-        //$model->setVariables(['title'=>'post']);
         $model->setVariables($data);
         return $model;
     }
