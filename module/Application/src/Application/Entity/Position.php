@@ -45,6 +45,11 @@ class Position
 
 
     /**
+     * @ORM\Column(type="string")
+     */
+    protected $image;
+
+    /**
      * @ORM\Column(type="integer")
      */
     protected $created_date;
@@ -135,6 +140,22 @@ class Position
     public function setCreatedDate($created_date)
     {
         $this->created_date = $created_date;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
     }
 
 
