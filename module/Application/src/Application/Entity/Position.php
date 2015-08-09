@@ -14,6 +14,16 @@ use Doctrine\ORM\Mapping as ORM;
 class Position
 {
 
+    const STATUS_GREEN = 0;
+    const STATUS_YELLOW = 1;
+    const STATUS_RED = 2;
+
+    protected $statusIcon = [
+        'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+        'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png',
+        'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
+    ];
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -48,6 +58,11 @@ class Position
      * @ORM\Column(type="string")
      */
     protected $image;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $icon;
 
     /**
      * @ORM\Column(type="integer")
@@ -108,6 +123,7 @@ class Position
     public function setStatus($status)
     {
         $this->status = $status;
+        $this->setIcon($this->statusIcon[$this->status]);
     }
 
     /**
@@ -157,6 +173,23 @@ class Position
     {
         $this->image = $image;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getIcon()
+    {
+        return $this->icon;
+    }
+
+    /**
+     * @param mixed $icon
+     */
+    public function setIcon($icon)
+    {
+        $this->icon = $icon;
+    }
+
 
 
 
