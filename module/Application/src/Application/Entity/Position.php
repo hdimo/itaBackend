@@ -179,7 +179,7 @@ class Position
      */
     public function getIcon()
     {
-        return $this->icon;
+        return ['url'=>$this->icon];
     }
 
     /**
