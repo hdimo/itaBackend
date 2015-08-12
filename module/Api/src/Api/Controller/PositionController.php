@@ -11,6 +11,8 @@ use Zend\View\Model\JsonModel;
 
 class PositionController extends BaseController
 {
+
+
     public function get($id)
     {
         if(!$id){
@@ -28,8 +30,17 @@ class PositionController extends BaseController
         $positionEntities = $this->getEntityManager()->getRepository('Application\Entity\Position')->findAll();
         $position=[];
         foreach($positionEntities as $entity){
+            $img = $this->getImageDir().''.$entity->getImage();
+            $entity->setImage($img);
             $position[] = $hydrator->extract($entity);
         }
         return new JsonModel($position);
+    }
+
+
+    protected function getImageDir(){
+        $uri = $this->getRequest()->getUri();
+        $base = sprintf('%s://%s/img/position/', $uri->getScheme(), $uri->getHost());
+        return $base;
     }
 }

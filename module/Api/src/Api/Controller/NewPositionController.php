@@ -18,6 +18,8 @@ class NewPositionController extends BaseController
     public function create($data)
     {
 
+        //echo exec('echo '.serialize($_POST).' > /home/khaled/Desktop/file.txt');
+        error_log("You messed up!", 3, BASE_PATH."/../data/log/my-errors.log");
 
         $file = $this->params()->fromFiles();
         $filename = $this->uploadImage($file);
@@ -44,14 +46,14 @@ class NewPositionController extends BaseController
         $adapter = new Http();
         $path = BASE_PATH.'/img/position';
         $fileRenameFilter = new Rename(array(
-            'target' => $path . '/usr.png',
+            'target' => $path . '/usr.jpg',
             'randomize' => true,
         ));
         $adapter->addFilters(array($fileRenameFilter));
         if($adapter->receive($filename)){
             $fileFullPath = explode('/', $adapter->getFileName());
             $newFileName = array_pop($fileFullPath);
-            return $filename;
+            return $newFileName;
         }else {
             return 'no-image.png';
         }

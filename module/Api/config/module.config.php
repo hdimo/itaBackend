@@ -43,6 +43,16 @@ return array(
                     ),
                 ),
             ),
+            'contact' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route' => '/api/contact',
+                    'defaults' => array(
+                        '__NAMESPACE__' => 'Api\Controller',
+                        'controller' => 'Contact',
+                    ),
+                ),
+            ),
         ),
     ),
 );
