@@ -18,6 +18,7 @@ return array(
         'invokables' => [
             'Api\Controller\Position' => 'Api\Controller\PositionController',
             'Api\Controller\NewPosition' => 'Api\Controller\NewPositionController',
+            'Api\Controller\Contact' => 'Api\Controller\ContactController',
         ],
     ),
 

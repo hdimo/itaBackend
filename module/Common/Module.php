@@ -45,7 +45,7 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface
         $app = $e->getApplication();
         $serviceManager  = $app->getServiceManager();
         $eventManager = $app->getEventManager();
-        //$eventManager->attach($serviceManager->get('Common\Listeners\ApiProblemListener'));
+        $eventManager->attach($serviceManager->get('Common\Listeners\ApiProblemListener'));
 
         /*
         $eventManager->attach(

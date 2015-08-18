@@ -7,6 +7,7 @@
 namespace Api\Controller;
 
 
+use Doctrine\ORM\EntityManager;
 use Zend\Mvc\Controller\AbstractRestfulController;
 
 class BaseController extends AbstractRestfulController
@@ -50,7 +51,7 @@ class BaseController extends AbstractRestfulController
     /**
      * get entity manager
      *
-     * @return array|object
+     * @return EntityManager
      */
     public function getEntityManager(){
         if(!$this->em)
