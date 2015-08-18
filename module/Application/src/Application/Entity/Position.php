@@ -9,7 +9,7 @@ namespace Application\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Application\Entity\Repository\PositionRepository")
  */
 class Position
 {
@@ -17,6 +17,10 @@ class Position
     const STATUS_GREEN = 0;
     const STATUS_YELLOW = 1;
     const STATUS_RED = 2;
+
+
+    const TRUE_VALUE = 1;
+    const FALSE_VALUE = 0;
 
     protected $statusIcon = [
         'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
@@ -46,6 +50,11 @@ class Position
      * @ORM\Column(type="smallint")
      */
     protected $status;
+
+    /**
+     * @ORM\Column(type="smallint")
+     */
+    protected $isAccident;
 
 
     /**
@@ -189,6 +198,29 @@ class Position
     {
         $this->icon = $icon;
     }
+
+    /**
+     * @return mixed
+     */
+    public function isAccident()
+    {
+        return $this->isAccident;
+    }
+
+    /**
+     * @param mixed $isAccident
+     */
+    public function setIsAccident($isAccident)
+    {
+        if($isAccident == true){
+            $this->isAccident = self::TRUE_VALUE;
+        }else{
+            $this->isAccident = self::FALSE_VALUE;
+        }
+
+    }
+
+
 
 
 

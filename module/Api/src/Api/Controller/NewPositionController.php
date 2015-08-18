@@ -29,6 +29,7 @@ class NewPositionController extends BaseController
         $position->setLongitude($data['longitude']);
         $position->setComment($data['comment']);
         $position->setStatus($data['status']);
+        $position->setIsAccident($data['isAccident']);
         $position->setImage($filename);
         $position->setCreatedDate(time());
 

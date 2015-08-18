@@ -12,11 +12,13 @@ use Zend\View\Model\JsonModel;
 class PositionController extends BaseController
 {
 
+    const TIME_TO_EXPIRE = 3600;
+
 
     public function get($id)
     {
-        if(!$id){
-           $this->showErrorMessage('id is required', 100);
+        if (!$id) {
+            $this->showErrorMessage('id is required', 100);
         }
         return new JsonModel();
     }
@@ -27,10 +29,13 @@ class PositionController extends BaseController
             $this->getEntityManager(),
             'Application\Entity\Position'
         );
-        $positionEntities = $this->getEntityManager()->getRepository('Application\Entity\Position')->findAll();
-        $position=[];
-        foreach($positionEntities as $entity){
-            $img = $this->getImageDir().''.$entity->getImage();
+        $positionEntities = $this->getEntityManager()
+            ->getRepository('Application\Entity\Position')
+            ->getLastPosition(['timeToExpire'=>self::TIME_TO_EXPIRE]);
+
+        $position = [];
+        foreach ($positionEntities as $entity) {
+            $img = $this->getImageDir() . '' . $entity->getImage();
             $entity->setImage($img);
             $position[] = $hydrator->extract($entity);
         }
@@ -38,7 +43,8 @@ class PositionController extends BaseController
     }
 
 
-    protected function getImageDir(){
+    protected function getImageDir()
+    {
         $uri = $this->getRequest()->getUri();
         $base = sprintf('%s://%s/img/position/', $uri->getScheme(), $uri->getHost());
         return $base;
