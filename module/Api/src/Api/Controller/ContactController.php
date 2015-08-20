@@ -17,6 +17,7 @@ class ContactController extends BaseController
 
         $model = new JsonModel();
 
+        /*
          //TODO filter & validate data
         $contact = new ContactMessage();
         $contact->setName($data['fromName']);
@@ -27,11 +28,13 @@ class ContactController extends BaseController
         $this->getEntityManager()->flush();
 
         //TODO Send email
-
         $model->setVariables([
            "message"=>"message envoyer avec succes"
         ]);
-        return $model;
+        */
+        //$model->setVariables($data);
+        echo serialize($data);
+        return false;
 
     }
 
