@@ -21,6 +21,8 @@ class RoleResourcePermissionFromArray implements RoleResourcePermissionInterface
                     ['resource' => 'Contact\Controller\Index', 'permission' => ['index', 'process']],
                     ['resource' => 'User\Controller\Login', 'permission' => ['index', 'process']],
 
+                    //['resource' => 'User\Controller\Register', 'permission' => ['index', 'process', 'success']],
+
                 ],
                 'deny' => []
             ],

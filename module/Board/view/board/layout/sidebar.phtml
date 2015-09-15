@@ -1,0 +1,35 @@
+<aside class="user-profile-sidebar">
+    <div class="user-profile-avatar text-center">
+        <h5><?= $this->identity()->getFirstname() ?></h5>
+        <p>Membere depuis <?= date('Y-m-d',$this->identity()->getRegistredDate()) ?></p>
+    </div>
+    <ul class="list user-profile-nav">
+
+        <li>
+            <a href="<?= $this->url('board') ?>">
+                <i class="fa fa-tasks"></i>Tableau de board
+            </a>
+        </li>
+
+        <li>
+            <a href="<?= $this->url('board/user',['controller'=>'profile']) ?>">
+                <i class="fa fa-user"></i>Mes informations
+            </a>
+        </li>
+        <li>
+            <a href="<?= $this->url('board/booking',['controller'=>'list']) ?>">
+                <i class="fa fa-clock-o"></i>Mes reservation
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-cog"></i>Paramettre
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-heart-o"></i>Hotel Favoris
+            </a>
+        </li>
+    </ul>
+</aside>

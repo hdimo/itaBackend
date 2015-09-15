@@ -10,6 +10,9 @@ return array(
         'template_path_stack' => [
             __DIR__ . '/../view',
         ],
+        'template_map'=>[
+            'layout/sidebar' => __DIR__ . '/../view/layout/sidebar.phtml',
+        ]
     ],
 
     'view_helpers' => [

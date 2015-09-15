@@ -6,11 +6,12 @@
             <?php if (isset($isLoginError)): ?>
                 <div class="alert alert-danger">Error login</div>
             <?php endif; ?>
+
             <?php
-            $form = $this->form;
-            $form->setAttribute('action', $this->url('user', array('controller' => 'login', 'action' => 'process')));
-            $form->prepare();
-            echo $this->form()->openTag($form);
+                $form = $this->form;
+                $form->setAttribute('action', $this->url('user', array('controller' => 'login', 'action' => 'process')));
+                $form->prepare();
+                echo $this->form()->openTag($form);
             ?>
 
             <div class="form-group form-group-icon-left"><i

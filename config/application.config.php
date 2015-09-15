@@ -16,6 +16,7 @@ return array(
         'Common',
         'User',
         'Contact',
+        'Board',
     ),
 
     // These are various options for the listeners attached to the ModuleManager
