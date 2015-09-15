@@ -19,6 +19,7 @@ return array(
     'service_manager' => array(
         'invokables'=>[
             'Common\Listeners\ApiProblemListener'=>'Common\Listeners\ApiProblemListener',
+            'Common\Listeners\Authorization'=>'Common\Listeners\Authorization',
         ]
     ),
 

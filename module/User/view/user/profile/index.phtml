@@ -1,0 +1,103 @@
+<div class="container">
+    <h3>Mes Informations</h3>
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <?= $this->sidebar_helper() ?>
+        </div>
+
+        <div class="col-md-9">
+
+
+            <?php if (isset($isLoginError)): ?>
+                <div>Error login</div>
+            <?php endif; ?>
+            <?php if (isset($isLoginError)): ?>
+                <div class="alert alert-danger">Error login</div>
+            <?php endif; ?>
+
+            <?php if ($this->accountExistError): ?>
+                <div class="alert alert-danger">
+                    Account exist
+                </div>
+            <?php endif; ?>
+
+            <?php if ($this->passwordError): ?>
+                <div class="alert alert-danger">
+                    les mot de passe ne sans pas les meme
+                </div>
+            <?php endif; ?>
+
+            <?php if ($this->formError): ?>
+                <div class="alert alert-danger">
+                    Verfie les champs
+                </div>
+            <?php endif; ?>
+
+            <?php
+            $form = $this->form;
+            $form->setAttribute("action", $this->url('user', array("controller" => "register", "action" => "process")));
+            $form->prepare();
+            echo $this->form()->openTag($form);
+            ?>
+
+
+            <div class="row">
+                <div class="col-md-6">
+
+                    <div class="form-group form-group-icon-left">
+                        <i class="fa fa-user input-icon input-icon-show"></i>
+                        <label>votre prenom</label>
+                        <?php echo $this->formelement($form->get('firstname')); ?>
+                        <?php echo $this->formelementerrors($form->get('firstname')); ?>
+                    </div>
+
+                    <div class="form-group form-group-icon-left">
+                        <i class="fa fa-user input-icon input-icon-show"></i>
+                        <label>Votre nom</label>
+                        <?php echo $this->formelement($form->get('lastname')); ?>
+                        <?php echo $this->formelementerrors($form->get('lastname')); ?>
+                    </div>
+
+                    <div class="form-group form-group-icon-left">
+                        <i class="fa fa-user input-icon input-icon-show"></i>
+                        <label>Numero du telephone</label>
+                        <?php echo $this->formelement($form->get('phone')); ?>
+                        <?php echo $this->formelementerrors($form->get('phone')); ?>
+                    </div>
+
+                    <div class="form-group form-group-icon-left">
+                        <i class="fa fa-user input-icon input-icon-show"></i>
+                        <label>Username or email</label>
+                        <?php echo $this->formelement($form->get('email')); ?>
+                        <?php echo $this->formelementerrors($form->get('email')); ?>
+                    </div>
+
+                    <input type="submit" value="Envoyer"
+                           class="btn btn-primary"/>
+                    <?php echo $this->form()->closeTag(); ?>
+
+                </div>
+
+                <div class="col-lg-6">
+
+                    <h3>Changer Mot de passe</h3>
+                    <p>
+                        <a href="<?= $this->url('board/user', ['controller'=>'update-password', 'action'=>'index']) ?>"
+                            class="btn btn-primary">
+                            cliquez ici <i class="fa fa-lock"></i>
+                        </a>
+                    </p>
+
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+</div>

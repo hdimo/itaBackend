@@ -47,6 +47,12 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface
         $eventManager = $app->getEventManager();
         $eventManager->attach($serviceManager->get('Common\Listeners\ApiProblemListener'));
 
+        $eventManager->attach(\Zend\Mvc\MvcEvent::EVENT_DISPATCH,
+            [$serviceManager->get('Common\Listeners\Authorization'), 'authorize'],
+            1000
+        );
+
+
         /*
         $eventManager->attach(
             MvcEvent::EVENT_FINISH,

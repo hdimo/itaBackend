@@ -1,0 +1,148 @@
+<?php
+$form = $this->registerForm;
+$form->setAttribute("action", $this->url('user', array("controller" => "register", "action" => "process")));
+$form->prepare();
+?>
+
+<div class="wrap">
+
+    <div class="row">
+
+
+
+
+
+
+        <!--- Content -->
+        <div class=" two-third">
+            <!--Login-->
+            <div class="box">
+
+                <hr>
+                <h4>en 30 secondes avec une adresse email</h4>
+
+                <?php echo $this->form()->openTag($form); ?>
+
+                <div class="f-row">
+                    <div class="one-third">
+                        <label for="name">Last name</label>
+                    </div>
+                    <div class="two-third">
+                        <?= $this->formelement($form->get('lastname')); ?>
+                    </div>
+                </div>
+
+                <div class="f-row">
+                    <div class="one-third">
+                        <label for="email">First name</label>
+                    </div>
+                    <div class="two-third">
+                        <?= $this->formelement($form->get('firstname')); ?>
+                    </div>
+                </div>
+
+                <div class="f-row">
+                    <div class="one-third">
+                        <label for="password">Your Email</label>
+                    </div>
+                    <div class="two-third">
+                        <?= $this->formelement($form->get('email')); ?>
+                    </div>
+                </div>
+
+                <div class="f-row">
+                    <div class="one-third">
+                        <label for="password">Your Mobile (verification with phone)</label>
+                    </div>
+                    <div class="two-third">
+                        <?= $this->formelement($form->get('phone')); ?>
+                    </div>
+                </div>
+
+                <div class="f-row">
+                    <div class="one-third">
+                        <label for="password2">type a password</label>
+                    </div>
+                    <div class="two-third">
+                        <?= $this->formelement($form->get('password')); ?>
+                    </div>
+                </div>
+
+                <div class="f-row">
+                    <div class="one-third">
+                        <label for="password2">Confirm your password</label>
+                    </div>
+                    <div class="two-third">
+                        <?= $this->formelement($form->get('confirm_password')); ?>
+                    </div>
+                </div>
+
+                <div class="f-row">
+                    <div class="full-width check">
+                        <div class="checker" id="uniform-checkbox"><span><input type="checkbox" id="checkbox"></span>
+                        </div>
+                        <label for="checkbox">I agree with terms and conditions.</label>
+                    </div>
+                </div>
+
+                <div class="f-row">
+                    <div class="full-width">
+                        <input type="submit" value="Create an account" class="btn color medium full">
+                    </div>
+                </div>
+
+                <p>Already have an account? <a href="<?php echo $this->url('user') ?>">Login</a>.</p>
+                <?= $this->form()->closeTag(); ?>
+            </div>
+            <!--//Login-->
+        </div>
+        <!--- //Content -->
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row" data-gutter="60">
+        <div class="col-md-4">
+            <h3>Welcome to Traveler</h3>
+
+            <p>Euismod nunc porta magna elementum penatibus amet gravida sit ligula odio id nunc proin sem augue quis
+                posuere interdum in sapien congue rutrum scelerisque sociosqu cubilia ridiculus et luctus mollis</p>
+
+            <p>Praesent est semper massa lobortis quisque lectus ridiculus hac eget</p>
+        </div>
+        <div class="col-md-4">
+            <h3>Login</h3>
+            <?php if ($this->accountExistError): ?>
+                <div class="red box">
+                    Account exist
+                </div>
+            <?php endif; ?>
+
+            <?php if ($this->passwordError): ?>
+                <div>
+                    les mot de passe ne sans pas les meme
+                </div>
+            <?php endif; ?>
+
+            <?php if ($this->formError): ?>
+                <div>
+                    Verfie les champs
+                </div>
+            <?php endif; ?>
+
+
+            <form>
+                <div class="form-group form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
+                    <label>Username or email</label>
+                    <input class="form-control" placeholder="e.g. johndoe@gmail.com" type="text"/>
+                </div>
+                <div class="form-group form-group-icon-left"><i class="fa fa-lock input-icon input-icon-show"></i>
+                    <label>Password</label>
+                    <input class="form-control" type="password" placeholder="my secret password"/>
+                </div>
+                <input class="btn btn-primary" type="submit" value="Sign in"/>
+            </form>
+        </div>
+    </div>
+</div>

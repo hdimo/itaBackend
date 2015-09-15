@@ -6,7 +6,6 @@
 
 namespace Api\Controller;
 
-
 use Application\Entity\ContactMessage;
 use Zend\View\Model\JsonModel;
 

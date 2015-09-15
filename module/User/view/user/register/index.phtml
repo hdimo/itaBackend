@@ -1,0 +1,92 @@
+<div class="container">
+    <div class="row" data-gutter="60" >
+        <div class="col-md-6">
+            <h3>Vous êtes Agences de voyages ?</h3>
+            <p>
+                La Plateforme El comparador, est aujourd'hui un outil indispensable pour la comparaison des prix des réservations d'hôtels et de tous les services touristiques dans le monde entier.
+                Grâce à notre centrale, vous, agence de voyages du monde entier bénéficieriez de packages sur mesure:
+            </p>
+            <p>
+                Praesent est semper massa lobortis quisque lectus ridiculus hac eget
+            </p>
+        </div>
+        <div class="col-md-6">
+            <h3>Formulaire d'inscription</h3>
+            <?php if (isset($isLoginError)): ?>
+                <div>Error login</div>
+            <?php endif; ?>
+            <?php if (isset($isLoginError)): ?>
+                <div class="alert alert-danger">Error login</div>
+            <?php endif; ?>
+
+            <?php if ($this->accountExistError): ?>
+                <div class="alert alert-danger">
+                    Account exist
+                </div>
+            <?php endif; ?>
+
+            <?php if ($this->passwordError): ?>
+                <div class="alert alert-danger">
+                    les mot de passe ne sans pas les meme
+                </div>
+            <?php endif; ?>
+
+
+
+            <?php if ($this->formError): ?>
+                <div class="alert alert-danger">
+                    Verfie les champs
+                </div>
+            <?php endif; ?>
+
+            <?php
+            $form = $this->registerForm;
+            $form->setAttribute("action", $this->url('user', array("controller" => "register", "action" => "process")));
+            $form->prepare();
+            echo $this->form()->openTag($form);
+            ?>
+
+            <div class="form-group form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
+                <label>votre prenom</label>
+                <?php echo $this->formelement($form->get('firstname')); ?>
+                <?php echo $this->formelementerrors($form->get('firstname')); ?>
+            </div>
+
+            <div class="form-group form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
+                <label>Votre nom</label>
+                <?php echo $this->formelement($form->get('lastname')); ?>
+                <?php echo $this->formelementerrors($form->get('lastname')); ?>
+            </div>
+
+            <div class="form-group form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
+                <label>Numero du telephone</label>
+                <?php echo $this->formelement($form->get('phone')); ?>
+                <?php echo $this->formelementerrors($form->get('phone')); ?>
+            </div>
+
+            <div class="form-group form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
+                <label>Username or email</label>
+                <?php echo $this->formelement($form->get('email')); ?>
+                <?php echo $this->formelementerrors($form->get('email')); ?>
+            </div>
+            <div class="form-group form-group-icon-left"><i class="fa fa-lock input-icon input-icon-show"></i>
+                <label>Password</label>
+                <?php echo $this->formelement($form->get('password')); ?>
+                <?php echo $this->formelementerrors($form->get('password')); ?>
+            </div>
+
+            <div class="form-group form-group-icon-left"><i class="fa fa-lock input-icon input-icon-show"></i>
+                <label>Password</label>
+                <?php echo $this->formelement($form->get('confirm_password')); ?>
+                <?php echo $this->formelementerrors($form->get('confirm_password')); ?>
+            </div>
+
+            <input type="submit" value="Login" class="btn color medium full"/>
+
+            <?php echo $this->form()->closeTag(); ?>
+            <br/>Vous avez deja un compte ?
+            <a href="<?= $this->url('user', array('controller' => 'login')) ?>">connexion</a>
+        </div>
+
+    </div>
+</div>
