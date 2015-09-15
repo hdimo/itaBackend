@@ -11,45 +11,13 @@ return array(
             __DIR__ . '/../view',
         ),
     ),
+    'controllers' => [],
 
-    'controllers' => array(
-
-    ),
-
-    'service_manager' => array(
+    'service_manager' => [
         'invokables'=>[
             'Common\Listeners\ApiProblemListener'=>'Common\Listeners\ApiProblemListener',
             'Common\Listeners\Authorization'=>'Common\Listeners\Authorization',
         ]
-    ),
-
-    'router' => array(
-// Uncomment below to add routes
-//        'routes' => array(
-//            'common' => array(
-//                'type' => 'Literal',
-//                'options' => array(
-//                    'route' => '/common',
-//                    'defaults' => array(
-//                        '__NAMESPACE__' => 'Common\Controller',
-//                        'controller' => 'Common',
-//                        'action' => 'index',
-//                    )
-//                )
-//            )
-//        ),
-//        'may_terminate' => true,
-//        'child_routes' => array(
-//            'default' => array(
-//                'type' => 'Segment',
-//                'options' => array(
-//                    'route' => '/[:controller[/:action]]',
-//                    'constraints' => array(
-//                        'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
-//                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
-//                    )
-//                )
-//            )
-//        )
-    )
+    ],
+    'router' => []
 );

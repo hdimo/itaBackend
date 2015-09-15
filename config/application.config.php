@@ -15,6 +15,7 @@ return array(
         'SanRestful',
         'Common',
         'User',
+        'Contact',
     ),
 
     // These are various options for the listeners attached to the ModuleManager

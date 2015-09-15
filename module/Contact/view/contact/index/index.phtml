@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-7">
+            <h2 class="title">Contactez nous</h2>
+
+            <?php
+                $form = $this->contactForm;
+                $form->setAttributes([
+                    'action'=>$this->url('contact/default', ['controller'=>'index', 'action'=>'process']),
+                    'method'=>'post'
+                ]);
+                $form->prepare();
+                echo $this->form()->openTag($form);
+            ?>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <?= $this->formelement($form->get('emailFrom')) ?>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>E-mail</label>
+                            <?= $this->formelement($form->get('emailSubject')) ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <?= $this->formelement($form->get('emailBody')) ?>
+                </div>
+                <input class="btn btn-primary" type="submit" value="Send Message" />
+            <?= $this->form()->closeTag() ?>
+        </div>
+        <div class="col-md-4">
+            <aside class="sidebar-right">
+                <ul class="list list-inline ">
+                    <li>
+                        <h5>Email</h5><a href="#">info@ita-dz.com</a>
+                    </li>
+                    <li>
+                        <h5>Phone Number</h5><a href="#">(+213)</a>
+                    </li>
+                </ul>
+            </aside>
+        </div>
+    </div>
+    <div class="gap"></div>
+</div>
