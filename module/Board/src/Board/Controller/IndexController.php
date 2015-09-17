@@ -6,12 +6,9 @@
 
 namespace Board\Controller;
 
-
 class IndexController extends BoardBaseController
 {
-
     public function indexAction(){
         return [];
     }
-
 }
